@@ -15,6 +15,14 @@ document.addEventListener("click", function (e) {
         }
     }
     if (e.target.classList.contains("delete-me")) {
-        alert("Wanna delete huh?")
+       
+        axios.post("/delete-item", {
+            
+            id : e.target.getAttribute("data-id")
+        }).then(() => {
+            e.target.parentElement.parentElement.remove()
+        }).catch( () => {
+            console.log("Please try later.")
+        })
     }
 })
