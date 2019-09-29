@@ -11,6 +11,8 @@ if (port == "" || port == null) {
   port = 3000
 }
 app.use(express.static('public'))
+
+let connectionString = 'mongodb+srv://mahesh:mahesh123@cluster0-uabni.gcp.mongodb.net/TodoApp?retryWrites=true&w=majority'
 mongodb.connect(connectionString, {
   useNewUrlParser: true,
   useUnifiedTopology: true
