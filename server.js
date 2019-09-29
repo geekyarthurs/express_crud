@@ -118,7 +118,7 @@ app.post("/update-item", (req, res) => {
       })
     })
   }else{
-    res.send("NOT OK")
+    res.sendStatus(500)
   }
 })
 
