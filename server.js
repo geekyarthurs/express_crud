@@ -81,6 +81,7 @@ app.get("/", (req, res) => {
 
 app.post("/create-item", (req, res) => {
 
+  console.log(req.ip)
 
 
   sanitizedText = validator.escape(req.body.item).trim().toString()
