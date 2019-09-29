@@ -81,7 +81,7 @@ app.get("/", (req, res) => {
 
 app.post("/create-item", (req, res) => {
 
-  console.log(req.ip)
+  
 
 
   sanitizedText = validator.escape(req.body.item).trim().toString()
@@ -103,9 +103,10 @@ app.post("/create-item", (req, res) => {
 
 app.post("/update-item", (req, res) => {
 
-  console.log(req.body.text)
+  
   sanitizedText = validator.escape(req.body.text).trim().toString()
-  if (sanitizedText != "" && sanitizedText < 50) {
+  console.log(sanitizedText)
+  if (sanitizedText != "" && sanitizedText.length < 50) {
     db.collection('items').findOneAndUpdate({
       _id: new mongodb.ObjectId(req.body.id)
     }, {
@@ -113,9 +114,7 @@ app.post("/update-item", (req, res) => {
         text: sanitizedText
       }
     }, () => {
-      res.send({
-        message: "success"
-      })
+      res.send("ok")
     })
   }else{
     res.sendStatus(500)
