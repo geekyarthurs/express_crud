@@ -116,6 +116,8 @@ app.post("/update-item", (req, res) => {
         message: "success"
       })
     })
+  }else{
+    res.send("NOT OK")
   }
 })
 
