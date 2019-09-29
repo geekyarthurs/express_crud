@@ -77,7 +77,7 @@ app.get("/", (req, res) => {
 
 })
 
-let validator = text => validator.escape(text).trim().toString()
+
 
 app.post("/create-item", (req, res) => {
 
