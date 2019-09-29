@@ -103,7 +103,8 @@ app.post("/create-item", (req, res) => {
 
 app.post("/update-item", (req, res) => {
 
-  sanitizedText = validator.escape(req.body.item).trim().toString()
+  console.log(req.body.text)
+  sanitizedText = validator.escape(req.body.text).trim().toString()
   if (sanitizedText != "" && sanitizedText < 50) {
     db.collection('items').findOneAndUpdate({
       _id: new mongodb.ObjectId(req.body.id)
