@@ -1,9 +1,9 @@
 let express = require("express")
 let validator = require("validator")
 let mongodb = require("mongodb")
-
+let dotenv = require("dotenv")
 let app = express()
-
+dotenv.config()
 let db
 
 let port = process.env.PORT
@@ -12,7 +12,7 @@ if (port == "" || port == null) {
 }
 app.use(express.static('public'))
 
-let connectionString = 'mongodb+srv://mahesh:mahesh123@cluster0-uabni.gcp.mongodb.net/TodoApp?retryWrites=true&w=majority'
+let connectionString = process.env.CONNECTIONSTRING
 mongodb.connect(connectionString, {
   useNewUrlParser: true,
   useUnifiedTopology: true
